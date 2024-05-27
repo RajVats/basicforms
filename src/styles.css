@@ -1,0 +1,47 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+body {
+    font-family: Roboto, Arial, sans-serif;
+  }
+  
+  .mat-form-field {
+    width: 100%;
+  }
+  
+  .mat-table {
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .mat-dialog-content {
+    padding: 20px;
+  }
+  
+  .mat-dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  button {
+    margin: 5px;
+  }
+
+  mat-dialog {
+    padding: 10px;
+  }
+
+  .customer-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .mat-form-field {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  

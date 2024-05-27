@@ -1,0 +1,37 @@
+<h2 mat-dialog-title>Create Customer</h2>
+<mat-dialog-content>
+  <form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Region</mat-label>
+      <mat-select formControlName="region" (selectionChange)="onRegionChange()" required>
+        <mat-option *ngFor="let region of regions" [value]="region">{{ region }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Country</mat-label>
+      <mat-select formControlName="country" required>
+        <ng-container *ngFor="let country of countries">
+          <mat-option [value]="country.country" *ngIf="country.region === customerForm.get('region')?.value">
+            {{ country.country }}
+          </mat-option>
+        </ng-container>
+      </mat-select>
+    </mat-form-field>
+
+    <div mat-dialog-actions>
+      <button mat-button mat-dialog-close>Cancel</button>
+      <button mat-raised-button color="primary" type="submit" (click)="dialogRef.close()">Create Customer</button>
+    </div>
+  </form>
+</mat-dialog-content>

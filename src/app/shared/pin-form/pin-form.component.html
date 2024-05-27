@@ -1,0 +1,28 @@
+<!-- pin-form.component.html -->
+<h2 mat-dialog-title>Add Pin</h2>
+<mat-dialog-content>
+  <form [formGroup]="pinForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Image URL</mat-label>
+      <input matInput formControlName="image" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Collaborators</mat-label>
+      <input matInput formControlName="collaborators">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Privacy</mat-label>
+      <mat-select formControlName="privacy" required>
+        <mat-option *ngFor="let option of privacyOptions" [value]="option">{{ option }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div mat-dialog-actions>
+      <button mat-button mat-dialog-close>Cancel</button>
+      <button mat-raised-button color="primary" type="submit" [disabled]="pinForm.invalid">Add Pin</button>
+    </div>
+  </form>
+</mat-dialog-content>
